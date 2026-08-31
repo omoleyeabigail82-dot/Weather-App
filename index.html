@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sky-layer" id="skyLayer">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="stars"></div>
+    <div class="rain"></div>
+  </div>
+
+  <div class="weather-app">
+    <h1>Weather Check</h1>
+
+    <div class="search-bar">
+      <input type="text" id="cityInput" placeholder="Enter city name...">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="popularCities" class="popular-cities"></div>
+
+    <div class="action-row">
+      <button id="locationBtn">📍 Use my location</button>
+      <button id="unitToggle">°C</button>
+    </div>
+
+    <button id="calendarToggle" class="calendar-toggle">📅 Pick a date</button>
+    <div id="calendar" class="calendar hidden"></div>
+
+    <div id="recentSearches" class="recent-searches"></div>
+
+    <div id="result" class="result">
+      <p class="placeholder">Search a city to see the weather</p>
+    </div>
+
+    <div id="hourly" class="hourly"></div>
+
+    <div id="forecast" class="forecast"></div>
+
+    <div id="sunMoon" class="sun-moon"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
