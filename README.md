@@ -1,7 +1,7 @@
 # Weather Check App
 
 **Live site:** https://omoleyeabigail82-dot.github.io/Weather-App/
-**Repo:** [https://github.com/omoleyeabigail82-dot/Weather-App/
+**Repo:** https://github.com/omoleyeabigail82-dot/Weather-App
 
 ## What it is
 A weather app with live search, current location detection, a 15-day forecast (one week behind, today, one week ahead), an hourly scroll, sunrise/sunset times, moon phase, and a background that shifts color and animation based on real weather conditions and time of day.
@@ -19,6 +19,7 @@ This was my first project using a real external API — direct practice for the 
 
 ## Features
 - Search weather by city name, or use current location (with real place name via reverse geocoding)
+- Quick-select row of popular global cities (Lagos, London, New York, Tokyo, Dubai, Paris, Nairobi, Sydney) for instant loading without typing
 - Current conditions: temperature, "feels like," description, wind speed, local time
 - Hourly forecast (next 12 hours, horizontal scroll)
 - 15-day forecast: 7 days behind, today, 7 days ahead — horizontal scroll, past days dimmed, today highlighted
@@ -50,38 +51,10 @@ This was my first project using a real external API — direct practice for the 
 
 **5. Hourly forecast invisible** — the code and data were both correct, but `overflow: hidden` on `body` (added for the animated clouds) was blocking the whole page from scrolling, making content below the fold unreachable. Fixed by scoping the overflow clipping to just the sky layer, not the whole page.
 
+**6. Inaccurate "Use my location" results** — the geolocation call wasn't requesting high-accuracy positioning, so browsers (especially on laptops without GPS) defaulted to a rough Wi-Fi/IP-based location estimate. Added `enableHighAccuracy: true` to request GPS-level precision where the device supports it — most noticeable improvement on mobile devices with real GPS hardware.
+
 ## What I'd do differently next time
 - Add previous/next month navigation to the calendar for edge cases near month boundaries
 - Cache city search results locally to reduce repeat API calls
 - Add a loading skeleton instead of plain "Loading..." text
 
----
-
-## How to edit this project on GitHub
-
-You don't need to touch the terminal for small changes — GitHub's website lets you edit files directly.
-
-**To edit a file directly on GitHub.com:**
-1. Go to your repo
-2. Click the file you want to change (e.g. `style.css`)
-3. Click the pencil ✏️ icon (top right of the file view) — this opens an editor right in the browser
-4. Make your changes
-5. Scroll down, write a short commit message describing what you changed (e.g. "fix background contrast")
-6. Click **Commit changes**
-
-GitHub Pages will automatically rebuild your live site within a minute or two of any commit — no extra steps needed.
-
-**For bigger changes (multiple files at once), use GitHub Desktop instead:**
-1. Open GitHub Desktop
-2. Make your edits locally in VS Code as usual
-3. Back in GitHub Desktop, you'll see the changed files listed
-4. Write a commit message summarizing the changes
-5. Click **Commit to main**
-6. Click **Push origin** (top right) to send the changes to GitHub
-
-**Good commit message habits:**
-- Short, present-tense, specific: "add sunrise/sunset widget," not "updates" or "fixed stuff"
-- One commit per logical change when possible — makes it easier to track what broke what, later
-
-**If something breaks after a push:**
-GitHub keeps every previous version. Go to your repo → **Commits** (near the top) → find the last working commit → you can view or even revert to that exact version of any file.
