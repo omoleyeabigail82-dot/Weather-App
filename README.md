@@ -1,7 +1,7 @@
 # Weather Check App
 
 **Live site:** https://omoleyeabigail82-dot.github.io/Weather-App/
-**Repo:** https://github.com/omoleyeabigail82-dot/Weather-App
+**Repo:** [https://github.com/omoleyeabigail82-dot/Weather-App/
 
 ## What it is
 A weather app with live search, current location detection, a 15-day forecast (one week behind, today, one week ahead), an hourly scroll, sunrise/sunset times, moon phase, and a background that shifts color and animation based on real weather conditions and time of day.
