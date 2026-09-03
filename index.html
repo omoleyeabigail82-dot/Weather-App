@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <title>Weather Check App</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="Beautiful, animated weather forecasts for any city">
   <meta property="og:title" content="Weather Check - Live Forecasts">
@@ -40,9 +40,25 @@
 
 
     <div class="action-row">
-      <button id="locationBtn" aria-label="Use my current location">📍 Use my location</button>
+      <button id="locationBtn" aria-label="Use my current location">📍 Use my location (may take a moment)</button>
       <button id="unitToggle" aria-label="Toggle temperature unit">°C</button>
     </div>
+
+
+    <!-- Manual location fallback for devices that can't detect location -->
+    <div class="manual-location" id="manualLocationBox" style="display: none;">
+      <p style="font-size: 12px; margin-bottom: 8px; color: rgba(255,255,255,0.8);">Or enter coordinates manually:</p>
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+        <input type="number" id="manualLat" placeholder="Latitude" style="flex: 1; min-width: 100px; padding: 8px; border-radius: 6px; border: none; font-size: 13px;" step="any">
+        <input type="number" id="manualLon" placeholder="Longitude" style="flex: 1; min-width: 100px; padding: 8px; border-radius: 6px; border: none; font-size: 13px;" step="any">
+        <button id="manualLocationBtn" style="padding: 8px 16px; border-radius: 6px; border: none; background: #ffd166; color: #1e3c72; font-weight: bold; cursor: pointer; font-size: 13px;">Get Weather</button>
+      </div>
+      <p style="font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 8px;">
+        Example: Lagos = 6.5244, 3.3792
+      </p>
+    </div>
+
+    <button id="showManualLocation" class="calendar-toggle" style="margin-top: 10px; background: rgba(255,255,255,0.15);">🔍 Can't detect location? Enter manually</button>
 
 
     <button id="calendarToggle" class="calendar-toggle" aria-label="Pick a date for forecast">📅 Pick a date</button>
