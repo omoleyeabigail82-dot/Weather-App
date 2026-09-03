@@ -459,15 +459,15 @@ function useMyLocation() {
 
 
     {
-      enableHighAccuracy: false,
+      enableHighAccuracy: true,
 
 
-      // Give browser 20 seconds
-      timeout: 20000,
+      // Give browser 60 seconds (mobile can be slower)
+      timeout: 60000,
 
 
-      // Always request a fresh location
-      maximumAge: 0
+      // Accept location up to 5 minutes old (faster on mobile)
+      maximumAge: 300000
     }
 
 
