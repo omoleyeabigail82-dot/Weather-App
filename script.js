@@ -2105,3 +2105,41 @@ renderRecentSearches();
 
 
 renderPopularCities();
+
+// ============================================================
+// MANUAL LOCATION FALLBACK
+// ============================================================
+
+const showManualBtn = document.getElementById("showManualLocation");
+const manualLocationBox = document.getElementById("manualLocationBox");
+const manualLatInput = document.getElementById("manualLat");
+const manualLonInput = document.getElementById("manualLon");
+const manualLocationBtn = document.getElementById("manualLocationBtn");
+
+if (showManualBtn) {
+  showManualBtn.addEventListener("click", () => {
+    manualLocationBox.style.display = 
+      manualLocationBox.style.display === "none" ? "block" : "none";
+  });
+}
+
+if (manualLocationBtn) {
+  manualLocationBtn.addEventListener("click", async () => {
+    const lat = parseFloat(manualLatInput.value);
+    const lon = parseFloat(manualLonInput.value);
+
+    if (isNaN(lat) || isNaN(lon)) {
+      showError("Please enter valid coordinates");
+      return;
+    }
+
+    if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+      showError("Invalid coordinates. Lat: -90 to 90, Lon: -180 to 180");
+      return;
+    }
+
+    showLoading();
+    await fetchAndRender(lat, lon, "Manual Location", "");
+    saveRecentSearch(`Coords: ${lat.toFixed(2)}, ${lon.toFixed(2)}`);
+  });
+}
